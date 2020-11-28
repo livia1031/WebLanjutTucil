@@ -1,43 +1,6 @@
-<!doctype html>
-<html lang="en">
+<?= $this->extend('templates/header'); ?>
 
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>TUCIL</title>
-</head>
-
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand">Pemrograman Web Lanjut</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('auth/index'); ?>">Home </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('auth/about'); ?>">About </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('auth/admin'); ?>">Admin</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('auth/register'); ?>">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('auth/logout'); ?>">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<?= $this->section('header'); ?>
 
     <nav>
         <div class="jumbotron jumbotron-fluid">
@@ -79,6 +42,4 @@
             <a href="https://www.instagram.com/liridkan.dessert/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Contact</a>
     </nav>
 
-</body>
-
-</html>
+    <?= $this->endSection(); ?>

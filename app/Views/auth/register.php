@@ -1,53 +1,63 @@
-<!DOCTYPE html>
-<html>
+<?= $this->extend('templates/content'); ?>
 
-<head>
-    <title>Register Page</title>
-    <link rel="stylesheet" type="text/css" href="/css/login.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+<?= $this->section('content'); ?>
 
-<body>
-    <div class="container">
-        <div class="img">
-            <img src="/img/register.svg">
-        </div>
-        <div class="login-content">
-            <form action="<?= base_url('auth/login'); ?>">
-                <img src="/img/avalogin.svg">
-                <h2 class="title">Register Page</h2>
-                <div class="input-div one">
-                    <div class="i">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="div">
-                        <input value="<?= old('user_name') ?>" type="text" name="user_name" id="user_name" class="form-control <?= $validation && $validation->hasError('user_name') ? ' is-invalid' : '' ?>" placeholder="Username">
-                    </div>
-                </div>
-                <div class="input-div one">
-                    <div class="i">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="div">
-                        <input value="<?= old('email') ?>" type="email" name="email" id="email" class="form-control <?= $validation && $validation->hasError('email') ? ' is-invalid' : '' ?>" placeholder="E-Mail">
-                    </div>
-                </div>
-                <div class="input-div pass">
-                    <div class="i">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <div class="div">
-                        <input value="<?= old('password') ?>" type="password" name="password" id="password" class="form-control <?= $validation && $validation->hasError('password') ? ' is-invalid' : '' ?>" placeholder="Password">
-                    </div>
-                </div>
-                <a href="<?= base_url('auth/login'); ?>">Have Acoount</a>
-                <input type="submit" class="btn" value="Register">
-            </form>
-        </div>
+    <title>Sign Up!</title>
+  </head>
+  <body>
+    
+
+    <div class="container h-100 pt-5">
+         <div class="row align-itemes-center h-100 align-middle">
+            <div class="col-6 mx-auto">
+                <div class="jumbotron">
+                <center>
+                 <h3>Sign Up</h3>
+                </center>
+                <?php $validation = session()->getFlashData('validation'); ?>
+
+                <form action="<?= current_url() ?> " method='POST' class="form-signin">
+                    <input value="<?= old('first_name') ?>" type="text" name="first_name" id="first_name" class="form-control <?= $validation && $validation->hasError('first_name') ? ' is-invalid' : '' ?>" placeholder="First Name">
+                    <?php if ($validation && $validation->hasError('first_name')) : ?>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('first_name'); ?>
+                        </div>
+                    <?php endif; ?>
+                    <input value="<?= old('last_name') ?>" type="text" name="last_name" id="last_name" class="form-control <?= $validation && $validation->hasError('last_name') ? ' is-invalid' : '' ?>" placeholder="Last Name">
+                    <?php if ($validation && $validation->hasError('last_name')) : ?>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('last_name'); ?>
+                        </div>
+                    <?php endif; ?>
+                    <input value="<?= old('email') ?>" type="email" name="email" id="email" class="form-control <?= $validation && $validation->hasError('email') ? ' is-invalid' : '' ?>" placeholder="E-Mail">
+                    <?php if ($validation && $validation->hasError('email')) : ?>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('email'); ?>
+                        </div>
+                    <?php endif; ?>
+                    <input value="<?= old('username') ?>" type="text" name="username" id="username" class="form-control <?= $validation && $validation->hasError('username') ? ' is-invalid' : '' ?>" placeholder="Username">
+                    <?php if ($validation && $validation->hasError('username')) : ?>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('username'); ?>
+                        </div>
+                    <?php endif; ?>
+                    <input value="<?= old('password') ?>" type="password" name="password" id="password" class="form-control <?= $validation && $validation->hasError('password') ? ' is-invalid' : '' ?>" placeholder="Password">
+                    <?php if ($validation && $validation->hasError('password')) : ?>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('password'); ?>
+                        </div>
+                    <?php endif; ?>
+                    <input value="<?= old('cpassword') ?>" type="password" name="cpassword" id="cpassword" class="form-control <?= $validation && $validation->hasError('cpassword') ? ' is-invalid' : '' ?>" placeholder="Confirm Password">
+                    <?php if ($validation && $validation->hasError('cpassword')) : ?>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('cpassword'); ?>
+                        </div>
+                    <?php endif; ?>
+                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">SIGN UP</button>
+                </form><!-- /form -->
     </div>
-    <script type="text/javascript" src="/js/main.js"></script>
-</body>
+    </div>
+    </div>
+    </div>
 
-</html>
+  <?= $this->endSection(); ?>
